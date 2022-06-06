@@ -11,26 +11,25 @@ import Swal from 'sweetalert2';
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
-  usuario : Usuario = new Usuario();
-  constructor(private usuarioService:UsuarioService,private router:Router) { }
+  usuario: Usuario = new Usuario();
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  guardarUsuario(){
+  guardarUsuario() {
     this.usuarioService.registrarUsuario(this.usuario).subscribe(dato => {
       console.log(dato);
       this.irALaListaDeUsuarios();
-    },error => console.log(error));
+    }, error => console.log(error));
   }
 
-  irALaListaDeUsuarios(){
+  irALaListaDeUsuarios() {
     this.router.navigate(['/usuarios']);
-    Swal('Usuario registrado',`El usuario ${this.usuario.userName} ha sido registrado con exito`,`success`);
+    Swal('Usuario registrado', `El usuario ${this.usuario.userName} ha sido registrado con exito`, `success`);
   }
 
-  onSubmit(){
+  onSubmit() {
     this.guardarUsuario();
   }
-
 }

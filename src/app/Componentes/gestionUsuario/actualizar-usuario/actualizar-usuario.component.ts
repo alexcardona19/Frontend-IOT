@@ -33,4 +33,3 @@ export class ActualizarUsuarioComponent implements OnInit {
     },error => console.log(error));
   }
 }
-
